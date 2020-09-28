@@ -32,7 +32,6 @@ function nextGreaterFreq(array) {
     freq[array[i]]++;
   }
   return evaluateNextGreaterFrequency(array, freq);
-  
 }
 
 const array = [1, 1, 2, 3, 4, 2, 1];

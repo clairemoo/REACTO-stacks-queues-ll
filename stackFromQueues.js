@@ -4,10 +4,10 @@ class StackFromQueues {
     this.queue2 = [];
   }
 
-  efficientPush(elem) {
-    this.queue1.push(elem);
+  efficientPop() {
+    return this.queue1.shift();
   }
-
+  
   inefficientPush(elem) {
     this.queue2.push(elem);
     while(this.queue1.length > 0) {
@@ -18,10 +18,14 @@ class StackFromQueues {
     this.queue1 = queue2Local;
   }
 
+  efficientPush(elem) {
+    this.queue1.push(elem);
+  }
+
   inefficientPop() {
     if(this.queue1.length > 1) {
       while(this.queue1.length > 1) {
-        this.queue2.push(this.queue2.shift());
+        this.queue2.push(this.queue1.shift());
       }
     }
     const retVal = this.queue1.shift();
@@ -31,9 +35,6 @@ class StackFromQueues {
     return retVal;
   }
 
-  efficientPop() {
-    return this.queue1.shift();
-  }
 }
 
 const stack = new StackFromQueues();
